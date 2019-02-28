@@ -10,7 +10,7 @@
 	
 	function db_connect(){
 		$serverName = "ALEXANDER-PC\MAIN";
-		$connectionInfo = array( "Database"=>"TransTur", "UID"=>"sa", "PWD"=>"qwerty", "CharcterSet"=>"UTF-8");
+		$connectionInfo = array( "Database"=>"TransTur", "UID"=>"sa", "PWD"=>"qwerty");
 		$link = sqlsrv_connect( $serverName, $connectionInfo);
 		if (!$link){
 			print('ERROR1:DB');
