@@ -20,12 +20,4 @@
 			return $link;
 		}
 	}
-	
-	function add_record($link,$tblname){
-		$sqltext = "INSERT INTO `test`.`".$tblname."` (`ID`, `FIO`, `Number`, `Adress`) VALUES (NULL, ` `, ` `, ` `)";
-		$result = mysqli_query($link, $sqltext);
-		$last = mysqli_insert_id($link);
-		print "ID".$last;
-		print $sqltext;
-	}
 ?>

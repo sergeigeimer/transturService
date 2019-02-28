@@ -1,4 +1,8 @@
 <?php
 	include_once "function.php";
-	add_record($link, 'spray');
+	if(db_connect()){
+		print("It's works");
+	} else {
+		print("Something wrong!!!");
+	}
 ?>
