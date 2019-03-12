@@ -1,6 +1,6 @@
 <?php
 	//Example /admin/login.php?login=LOGIN&pass=PASSSHA1
-	include_once "../function.php";
+	include_once "function.php";
 	$login = $_REQUEST['login'];
 	$pass = $_REQUEST['pass'];
 	$link = db_connect();
@@ -10,7 +10,7 @@
 		$array=sqlsrv_fetch_array($queryWorkers);
 		
 		if($array==NULL)
-			print('NotFound');
+			print('404');
 		else
 		{
 			$firstname=$array[1];
@@ -19,7 +19,7 @@
 			$queryPosts=sqlsrv_query($link, $sqltext);
 			$array=sqlsrv_fetch_array($queryPosts);
 			if($array==NULL){
-				print('NotFoundPost');
+				print('404');
 			}
 			else
 			{
