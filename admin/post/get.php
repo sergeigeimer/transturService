@@ -2,7 +2,8 @@
 	//Example /admin/post/get.php
 	include_once "../../function.php";
 	$link = db_connect();
-	if($link){
+	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, "Администратор");
+	if($link && $logon){
 		$sqltext="SELECT ID, PostName FROM Posts";
 		$query=sqlsrv_query($link, $sqltext);
 		if($query){
