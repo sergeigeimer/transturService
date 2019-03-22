@@ -11,7 +11,7 @@
 			$stringForSQL=$stringForSQL."'".$parsedstring[$i]."'".", ";
 		}
 		$stringForSQL=$stringForSQL."'".$parsedstring[20]."'";
-		$sqltext="INSERT INTO Workers(DateOfContract, Login, PassSHA1, IDPost, LastName, FirstName, Patronymic, DataOfBirth, PassportNumber, PassportIssuedBy, PassportIssuedDate,  RegAddress, FactAddress, INN, SNILS, Bank, BankAccountNumber, BankBIK, BankCorrespondentAccount, BankExt, MinPay) VALUES (".$stringForSQL.")";
+		$sqltext="INSERT INTO Workers(NameTur, IDCountry, IDLocality, IDTypeOfTransport, InfoAboutDepPoint, DateStart, DateEnd, NameHotel, CountStars, PriceHotel, NumNight, TripPrice, IsVisa, IDTypeFood, MaxCountClients) VALUES (".$stringForSQL.")";
 		$query=sqlsrv_query($link, $sqltext);
 		if($query){
 			print('Good');

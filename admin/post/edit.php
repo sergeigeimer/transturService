@@ -1,5 +1,5 @@
 <?php
-	//Example /admin/post/add.php?id=ID&name=POSTNAME + login string
+	//Example /admin/post/edit.php?id=ID&name=POSTNAME + login string
 	include_once "../../function.php";
 	$link = db_connect();
 	$id = $_REQUEST['id'];

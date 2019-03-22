@@ -1,10 +1,10 @@
 <?php
-	//Example /admin/post/get.php + login string
-	include_once "../../function.php";
+	//Example /admin/turoperator/get.php?db=DB + login string
+	include_once "../function.php";
 	$link = db_connect();
-	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, "Администратор");
+	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, "Туроператор");
 	if($link && $logon){
-		$sqltext="SELECT * FROM Workers";
+		$sqltext="SELECT * FROM ".$_REQUEST['db']."";
 		$query=sqlsrv_query($link, $sqltext);
 		if($query){
 			while ($row = sqlsrv_fetch_array($query)){
