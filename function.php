@@ -10,8 +10,7 @@
 	
 	function db_connect(){
 		include_once "conf.cfg";
-		$link = sqlsrv_connect( $serverName1, $connectionInfo);
-		var_dump($link);
+		$link = sqlsrv_connect( $serverName, $connectionInfo);
 		if (!$link){
 			print('500');
 		}
