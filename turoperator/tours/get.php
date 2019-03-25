@@ -8,7 +8,6 @@
 			$sqltext="SELECT * FROM Tours";
 		else
 			$sqltext="SELECT * FROM Tours WHERE ".$_REQUEST['paramName']." = '".$_REQUEST['paramValue']."'";
-		print ($sqltext);
 		$query=sqlsrv_query($link, $sqltext);
 		if($query){
 			while ($row = sqlsrv_fetch_array($query)){
