@@ -2,13 +2,12 @@
 	//Example /admin/turoperator/tours/get.php?paramName=PARANAME&paramValue=PARAMVALUE + login string
 	include_once "../../function.php";
 	$link = db_connect();
-	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, "Туроператор");
+	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, "Турагент");
 	if($link && $logon){
 		if($_REQUEST['paramName']==NULL || $_REQUEST['paramValue']==NULL)
 			$sqltext="SELECT * FROM Tours";
 		else
 			$sqltext="SELECT * FROM Tours WHERE ".$_REQUEST['paramName']." = '".$_REQUEST['paramValue']."'";
-		print ($sqltext);
 		$query=sqlsrv_query($link, $sqltext);
 		if($query){
 			while ($row = sqlsrv_fetch_array($query)){
