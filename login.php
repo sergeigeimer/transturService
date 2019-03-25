@@ -5,7 +5,7 @@
 	$pass = $_REQUEST['pass'];
 	$link = db_connect();
 	if($link){
-		$sqltext="SELECT IDPost, FirstName, LastName, Login, PassSHA1  FROM Workers WHERE Login = '".$login."' AND PassSHA1 = '".$pass."'";
+		$sqltext="SELECT IDPost, FirstName, LastName, ID, Login, PassSHA1  FROM Workers WHERE Login = '".$login."' AND PassSHA1 = '".$pass."'";
 		$queryWorkers=sqlsrv_query($link, $sqltext);
 		$array=sqlsrv_fetch_array($queryWorkers);
 		
@@ -15,6 +15,7 @@
 		{
 			$firstname=$array[1];
 			$lastname=$array[2];
+			$id=$array[3];
 			$sqltext="SELECT PostName, ID FROM Posts WHERE ID = '".$array[0]."'";
 			$queryPosts=sqlsrv_query($link, $sqltext);
 			$array=sqlsrv_fetch_array($queryPosts);
@@ -23,7 +24,7 @@
 			}
 			else
 			{
-				print($array[0].'|'.$lastname.'|'.$firstname);
+				print($array[0].'|'.$lastname.'|'.$firstname.'|'.$id);
 			}
 		}
 			
