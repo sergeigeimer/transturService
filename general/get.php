@@ -6,7 +6,7 @@
 		if($_REQUEST['paramName']==NULL || $_REQUEST['paramValue']==NULL)
 			$sqltext="SELECT * FROM ".$table." Tours";
 		else
-			$sqltext="SELECT * FROM ".$table." WHERE ".$_REQUEST['paramName']." = '".$_REQUEST['paramValue']."'";
+			$sqltext="SELECT * FROM ".$table." WHERE ".$_REQUEST['paramName']." LIKE '%".$_REQUEST['paramValue']."%'";
 		$query=sqlsrv_query($link, $sqltext);
 		if($query){
 			while ($row = sqlsrv_fetch_array($query)){
