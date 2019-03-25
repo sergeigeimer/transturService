@@ -20,6 +20,8 @@
 		}
 	}
 	function db_login($login, $pass, $link, $post){
+		if($post=="All")
+			return true;
 		if($login==NULL && $pass==NULL){
 			print(401);
 			return false;
