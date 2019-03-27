@@ -1,10 +1,12 @@
 <?php
 	//Example /admin/post/get.php + login string
+	$table = "PayConst";
+	$post = "Бухгалтер";
 	include_once "../../function.php";
 	$link = db_connect();
-	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, "Администратор");
+	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, $post);
 	if($link && $logon){
-		$sqltext="SELECT * FROM Workers";
+		$sqltext="SELECT TOP(1) * FROM ".$table." ORDER BY DateEdit DESC";
 		$query=sqlsrv_query($link, $sqltext);
 		if($query){
 			while ($row = sqlsrv_fetch_array($query)){
@@ -15,8 +17,10 @@
 					else
 						print($row[$i]);
 				}
-				print(";");
+				$exist = True;
 			}
+			if(!$exist)
+				print("NotExist");
 		}
 		else
 			print('Error');

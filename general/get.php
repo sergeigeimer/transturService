@@ -4,7 +4,7 @@
 	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, $post);
 	if($link && $logon){
 		if($_REQUEST['paramName']==NULL || $_REQUEST['paramValue']==NULL)
-			$sqltext="SELECT * FROM ".$table." Tours";
+			$sqltext="SELECT * FROM ".$table."";
 		else
 			$sqltext="SELECT * FROM ".$table." WHERE ".$_REQUEST['paramName']." LIKE '%".$_REQUEST['paramValue']."%'";
 		$query=sqlsrv_query($link, $sqltext);
