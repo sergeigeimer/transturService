@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	//Example /admin/worker/add.php?string=STRING + login string
 	include_once "../../function.php";
 	$string = $_REQUEST['string'];
