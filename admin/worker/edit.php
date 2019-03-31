@@ -8,7 +8,6 @@
 	$logon = db_login($_REQUEST['login'], $_REQUEST['pass'], $link, "Администратор");
 	if($link && $logon){
 		$sqltext="UPDATE Workers SET ".$paramName."='".$paramValue."' WHERE ID = ".$id."";
-		print($sqltext);
 		$query=sqlsrv_query($link, $sqltext);
 		if($query){
 			print('Good');
