@@ -23,7 +23,7 @@
 		if($post=="True"){
 			return true;
 		}
-		if($post=="All")
+		if($post=="All"){
 			$sqltext="SELECT Login, PassSHA1  FROM Workers WHERE Login = '".$login."' AND PassSHA1 = '".$pass."'";
 			$queryWorkers=sqlsrv_query($link, $sqltext);
 			$array=sqlsrv_fetch_array($queryWorkers);
@@ -34,6 +34,7 @@
 				print("401");
 				return false;
 			}
+		}
 		if($login==NULL && $pass==NULL){
 			print(401);
 			return false;
